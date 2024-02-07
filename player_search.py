@@ -15,6 +15,8 @@ class PlayerSearch:
             'Oklahoma City Thunder': 'OKC',
             'San Antonio Spurs': 'SAS'
         }
+        self.first_team_abbreviation = []
+        self.second_team_abbreviation = []
 
     def format_teams(self, team_labels):
         for label in team_labels:
@@ -22,10 +24,10 @@ class PlayerSearch:
             first_team = label_split[0].rstrip()
             second_team = label_split[1].lstrip()
 
-            first_team_abbreviation = self.team_abbreviations.get(first_team, first_team[:3].upper())
-            second_team_abbreviation = self.team_abbreviations.get(second_team, second_team[:3].upper())
+            self.first_team_abbreviation.append(self.team_abbreviations.get(first_team, first_team[:3].upper()))
+            self.second_team_abbreviation.append(self.team_abbreviations.get(second_team, second_team[:3].upper()))
 
-            return first_team_abbreviation, second_team_abbreviation
+        return self.first_team_abbreviation, self.second_team_abbreviation
 
     @staticmethod
     def get_page(first_team, second_team):
@@ -34,25 +36,24 @@ class PlayerSearch:
                                                                                                       "=--&t4=--")
 
     @staticmethod
-    def get_players(player_response):
-        player_response.raise_for_status()
+    def get_needed_headers(player_response):
         soup = bs4.BeautifulSoup(player_response.text, 'html.parser')
         return soup.find_all('th', class_='left')
 
-    def filter_players(self, th_elements):
+    @staticmethod
+    def get_players_from_headers(th_elements):
         # Extract the text from the <th> element
-        player = []
+        players = []
         for th_element in th_elements:
             if th_element:
-                player.append(th_element.get_text(strip=True))
+                players.append(th_element.get_text(strip=True))
             else:
                 print("Th element not found.")
 
-        i = 1
-        not_appended = True
-        while not_appended:
-            if player[len(player) - i] not in self.players:
-                self.players.append(player[len(player) - i])
-                not_appended = False
-            else:
-                i += 1
+        return players
+
+    def filter_players(self, players):
+        for player in reversed(players):
+            if player not in self.players:
+                self.players.append(player)
+                break
