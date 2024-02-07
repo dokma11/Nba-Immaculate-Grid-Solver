@@ -14,7 +14,7 @@ class Gui:
         self.frame = customtkinter.CTkFrame(master=self.root)
         self.frame.pack(pady=20, padx=60, fill="both", expand=True)
 
-        self.label = customtkinter.CTkLabel(master=self.frame, text="Immaculate grid solver", font=("Roboto", 24))
+        self.label = customtkinter.CTkLabel(master=self.frame, text="Immaculate Grid Solver", font=("Roboto", 24))
         self.label.pack(pady=12, padx=10)
 
         self.label = customtkinter.CTkLabel(master=self.frame, text="Enter grid URL", font=("Roboto", 18))
