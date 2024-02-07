@@ -9,14 +9,14 @@ class InputManager:
         self.filtered_players = filtered_players
 
     def enter_player_name(self):
-        time.sleep(2)
+        time.sleep(1)
         pyperclip.copy(self.filtered_players[self.index])
         pyautogui.hotkey('ctrl', 'v', interval=0.25)
         time.sleep(1)
         pyautogui.press('tab')
         time.sleep(1)
         pyautogui.press('enter')
-        time.sleep(2)
+        time.sleep(1)
 
     def click(self, x, y):
         pyautogui.click(x, y)
@@ -54,6 +54,6 @@ class InputManager:
     @staticmethod
     def set_up_page():
         # Scroll to the top
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.click(1908, 185)
-        time.sleep(3)
+        time.sleep(2)
