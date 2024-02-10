@@ -39,7 +39,7 @@ class Gui:
             messagebox.showinfo('Alert', 'The provided URL is in incorrect format!')
 
     def validate(self):
-        if "https://www.immaculategrid.com/basketball/mens/grid" in self.input1.get():
+        if "https://www.immaculategrid.com/basketball/mens/" in self.input1.get():
             return True
         else:
             return False
