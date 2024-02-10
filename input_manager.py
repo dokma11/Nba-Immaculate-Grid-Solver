@@ -16,6 +16,8 @@ class InputManager:
         pyautogui.press('tab')
         time.sleep(1)
         pyautogui.press('enter')
+        time.sleep(0.5)
+        pyautogui.press('escape')
         time.sleep(1)
 
     def click(self, x, y):

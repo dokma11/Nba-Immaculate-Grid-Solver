@@ -132,3 +132,4 @@ class PlayerSearch:
                 print("No <a> tag found in the paragraph.")
         else:
             print("Paragraph not found.")
+            self.players.append("No players in that criteria found.")
