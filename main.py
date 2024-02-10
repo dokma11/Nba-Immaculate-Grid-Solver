@@ -48,7 +48,9 @@ for i in range(len(first_team_list)):
 for player in ps.players:
     print(player)
 
-messagebox.showinfo("Results", "The correct players have been found. Now the application will fill out the grid")
+messagebox.showinfo("Results", "The correct players have been found. Now the application will fill out the grid."
+                               "\nNote: Please don't use your mouse or keyboard while the application is filling out "
+                               "the grid, it could lead to unexpected errors.")
 
 im = InputManager(ps.players)
 

@@ -33,7 +33,8 @@ class Gui:
         if self.validate():
             self.return_value = self.input1.get()
             messagebox.showinfo('Immaculate Grid Solver', 'The application will now start searching for the right '
-                                                          'players!')
+                                                          'players! \nPlease make sure that the Immaculate Grid page is'
+                                                          ' opened in your browser.')
             self.root.destroy()
         else:
             messagebox.showinfo('Alert', 'The provided URL is in incorrect format!')
