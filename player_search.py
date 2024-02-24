@@ -22,7 +22,7 @@ class PlayerSearch:
             'Phoenix Suns': 'PHO',
             'Sacramento Kings': 'SAC',
             'Indiana Pacers': 'IND',
-            'Dallas Mavericks': 'DEN',
+            'Dallas Mavericks': 'DAL',
             'Miami Heat': 'MIA',
             'Orlando Magic': 'ORL',
             'Chicago Bulls': 'CHI',
